@@ -1,16 +1,8 @@
 #include <SFML/Graphics.hpp>
 using namespace sf;
 #include "Ball.hpp"
-
-int checkCollision(Ball ball) {
-	if (ball.posBalle.intersects(posMurG)) 
-		ball.ReverseX();
-	if (ball.posBalle.intersects(posMurD))
-		ball.ReverseX();
-	if (ball.posBalle.intersects(posMurH) || posBalle.intersects(posMurB))
-		ball.ReverseY();
-
-}
+#include "Terrain.hpp"
+#include "fonctions.hpp"
 
 int main(int argc, const char *argv[])
 {

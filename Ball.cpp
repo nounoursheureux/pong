@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 using namespace sf;
 #include "Ball.hpp"
+#include "fonctions.hpp"
 
 Ball::Ball() {
 	speedX = 2;
@@ -27,6 +28,3 @@ void Ball::ReverseY() {
 	speedY *= -1;
 }
 
-void Ball::checkCollision() {
-	posBalle = balle.getGlobalBounds();
-}

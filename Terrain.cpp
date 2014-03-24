@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 using namespace sf;
-#include "Mur.hpp"
+#include "Terrain.hpp"
+#include "fonctions.hpp"
 
 Terrain::Terrain() {
 	murG = RectangleShape(Vector2f(1, 480));
@@ -13,6 +14,4 @@ Terrain::Terrain() {
 	murB.setPosition(0,479);
 	posMurG = murG.getGlobalBounds();
 	posMurD = murD.getGlobalBounds();
-	posMurH = murH.getGlobalBounds();
-	posMurB = murB.getGlobalBounds();
 }

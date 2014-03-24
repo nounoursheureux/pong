@@ -1,9 +1,11 @@
 #include <SFML/Graphics.hpp>
 using namespace sf;
+#include "fonctions.hpp"
 
 class Terrain {
 	public : 
 		Terrain();
+		friend int checkCollision(Ball, Terrain);
 	private :
 		RectangleShape murG;
 		RectangleShape murD;
@@ -13,4 +15,4 @@ class Terrain {
 		FloatRect posMurD;
 		FloatRect posMurH;
 		FloatRect posMurB;
-}
+};
