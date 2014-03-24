@@ -1,12 +1,12 @@
 #include <SFML/Graphics.hpp>
 using namespace sf;
-#include "fonctions.hpp"
+#include "Ball.hpp"
 
 Ball::Ball() {
-	speedX = 3;
+	speedX = 2;
 	speedY = 3;
-	vitesse = 3;
-	RectangleShape balle(Vector2f(10,10));
+	vitesse = 2;
+	balle = RectangleShape(Vector2f(10, 10));
 	balle.setOrigin(5, 5);
 	balle.setPosition(320, 240);
 }
@@ -27,6 +27,6 @@ void Ball::ReverseY() {
 	speedY *= -1;
 }
 
-RectangleShape Ball::returnSprite() {
-	return balle;
+void Ball::checkCollision() {
+	posBalle = balle.getGlobalBounds();
 }

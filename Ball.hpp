@@ -8,8 +8,10 @@ class Ball {
 		void MoveY();
 		void ReverseX();
 		void ReverseY();
-		RectangleShape returnSprite();
+		void checkCollision();
 		RectangleShape balle;
+		FloatRect posBalle;
+		friend int checkCollision();
 	private :
 		int taille;
 		int speedX;
