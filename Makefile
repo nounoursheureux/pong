@@ -1,4 +1,4 @@
-CFLAGS = -Wall -Wshadow
+CFLAGS = -g -Wall -Wshadow
 LOADLIBES = -lsfml-system -lsfml-graphics -lsfml-window 
 
 all : pong

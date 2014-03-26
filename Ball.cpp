@@ -2,10 +2,11 @@
 using namespace sf;
 #include <iostream>
 #include "Classes.hpp"
+#include <signal.h>
 
 Ball::Ball() {
-	speedX = 2;
-	speedY = 3;
+	speedX = 3;
+	speedY = 1;
 	balle = RectangleShape(Vector2f(10, 10));
 	balle.setOrigin(5, 5);
 	balle.setPosition(320, 240);
@@ -26,7 +27,6 @@ void Ball::ReverseX() {
 
 void Ball::ReverseY() {
 	speedY *= -1;
-	balle.setPosition(0,0);
 }
 
 FloatRect Ball::returnPos() {
@@ -42,9 +42,9 @@ void Ball::checkCollision() {
 	Terrain terrain;
 	FloatRect* murs = terrain.returnMurs();
 	if (posBalle.intersects(murs[0])) 
-		this->ReverseX();
+		ReverseX();
 	if (posBalle.intersects(murs[1]))
-		this->ReverseX();
+		ReverseX();
 	if (posBalle.intersects(murs[2]) || posBalle.intersects(murs[3]))
-		this->ReverseY();
+		ReverseY();
 }

@@ -10,7 +10,7 @@ Terrain::Terrain() {
 	murG.setPosition(0,0);
 	murD.setPosition(639,0);
 	murH.setPosition(0,0);
-	murB.setPosition(0,479);
+	murB.setPosition(0,478);
 	murs[0] = murG.getGlobalBounds();
 	murs[1] = murD.getGlobalBounds();
 	murs[2] = murH.getGlobalBounds();

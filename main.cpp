@@ -47,7 +47,6 @@ int main(int argc, const char *argv[])
 		}
 		balle = ball.returnBalle();
 		posBalle = ball.returnPos();
-		std::cout << ball.speedY << "\n";
 		/*if (posBalle.intersects(murs[0])) 
 			ball.ReverseX();
 		if (posBalle.intersects(murs[1]))
