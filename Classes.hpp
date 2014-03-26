@@ -11,6 +11,7 @@ class Ball {
 		void ReverseY();
 		int speedX;
 		int speedY;
+		void checkCollision();
 		FloatRect returnPos();
 		RectangleShape returnBalle();
 	private :

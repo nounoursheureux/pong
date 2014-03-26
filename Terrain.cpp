@@ -1,11 +1,6 @@
 #include <SFML/Graphics.hpp>
 using namespace sf;
-<<<<<<< HEAD
 #include "Classes.hpp"
-=======
-#include "Terrain.hpp"
-#include "fonctions.hpp"
->>>>>>> 3e17115840fdf5d7408f612ce3dd66e2213eb8e6
 
 Terrain::Terrain() {
 	murG = RectangleShape(Vector2f(1, 480));
@@ -16,19 +11,12 @@ Terrain::Terrain() {
 	murD.setPosition(639,0);
 	murH.setPosition(0,0);
 	murB.setPosition(0,479);
-	posMurG = murG.getGlobalBounds();
-	posMurD = murD.getGlobalBounds();
-<<<<<<< HEAD
-	posMurH = murH.getGlobalBounds();
-	posMurB = murB.getGlobalBounds();
-	murs[0] = posMurG;
-	murs[1] = posMurD;
-	murs[2] = posMurH;
-	murs[3] = posMurB;
+	murs[0] = murG.getGlobalBounds();
+	murs[1] = murD.getGlobalBounds();
+	murs[2] = murH.getGlobalBounds();
+	murs[3] = murB.getGlobalBounds();
 }
 
 FloatRect* Terrain::returnMurs() {
 	return murs;
-=======
->>>>>>> 3e17115840fdf5d7408f612ce3dd66e2213eb8e6
 }
