@@ -38,13 +38,22 @@ RectangleShape Ball::returnBalle() {
 	return balle;
 }
 
-void Ball::checkCollision() {
+int Ball::checkCollision(FloatRect raquette) {
 	Terrain terrain;
 	FloatRect* murs = terrain.returnMurs();
-	if (posBalle.intersects(murs[0])) 
-		ReverseX();
-	if (posBalle.intersects(murs[1]))
-		ReverseX();
-	if (posBalle.intersects(murs[2]) || posBalle.intersects(murs[3]))
+	if (posBalle.intersects(raquette)) {
+		ReverseX(); 
+		return 0;
+	}
+	if (posBalle.intersects(murs[0])) {
+		return 1;
+	}
+	if (posBalle.intersects(murs[1])) {
+		return 2;
+	}
+	if (posBalle.intersects(murs[2]) || posBalle.intersects(murs[3])) {
 		ReverseY();
+		return 0;
+	}	
 }
+

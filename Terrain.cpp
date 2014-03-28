@@ -15,8 +15,26 @@ Terrain::Terrain() {
 	murs[1] = murD.getGlobalBounds();
 	murs[2] = murH.getGlobalBounds();
 	murs[3] = murB.getGlobalBounds();
+	scoreJ1 = 0;
+	scoreJ2 = 0;
 }
 
 FloatRect* Terrain::returnMurs() {
 	return murs;
+}
+
+int Terrain::getScoreJ1() {
+	return scoreJ1;
+}
+
+int Terrain::getScoreJ2() {
+	return scoreJ2;
+}
+
+void Terrain::incJ1() {
+	++scoreJ1;
+}
+
+void Terrain::incJ2() {
+	++scoreJ2;
 }

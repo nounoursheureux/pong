@@ -11,7 +11,7 @@ class Ball {
 		void ReverseY();
 		int speedX;
 		int speedY;
-		void checkCollision();
+		int checkCollision(FloatRect);
 		FloatRect returnPos();
 		RectangleShape returnBalle();
 	private :
@@ -24,6 +24,10 @@ class Terrain {
 	public : 
 		Terrain();
 		FloatRect* returnMurs();
+		int getScoreJ1();
+		int getScoreJ2();
+		void incJ1();
+		void incJ2();
 	private :
 		RectangleShape murG;
 		RectangleShape murD;
@@ -34,4 +38,6 @@ class Terrain {
 		FloatRect posMurH;
 		FloatRect posMurB;
 		FloatRect murs[4];
+		int scoreJ1;
+		int scoreJ2;
 };
