@@ -24,7 +24,9 @@ int main(int argc, const char *argv[])
 	RectangleShape balle = ball.returnBalle();
 	app.setFramerateLimit(60);
 	RectangleShape rectangle(Vector2f(32, 64));
+	RectangleShape rectangle2(Vector2f(32, 64));
 	FloatRect raquette;
+	FloatRect raquette2;
 	RectangleShape murG(Vector2f(1, 480));
 	murG.setPosition(0,0);
 	FloatRect posMurG = murG.getGlobalBounds();
@@ -37,6 +39,7 @@ int main(int argc, const char *argv[])
 	RectangleShape murH(Vector2f(640, 1));
 	murH.setPosition(0,0);
 	FloatRect posMurH = murH.getGlobalBounds();
+	rectangle2.setPosition(608, 0);
 	while (app.isOpen()) {
 		Event event;
 		while (app.pollEvent(event)) {
@@ -49,17 +52,18 @@ int main(int argc, const char *argv[])
 			if (Keyboard::isKeyPressed(Keyboard::Up)) {
 				rectangle.move(0, -5);
 			}
-			if (Keyboard::isKeyPressed(Keyboard::J)) {
-				ball.ReverseX();
+			if (Keyboard::isKeyPressed(Keyboard::S)) {
+				rectangle2.move(0, 5);
 			}
-			if (Keyboard::isKeyPressed(Keyboard::K)) {
-				ball.ReverseY();
+			if (Keyboard::isKeyPressed(Keyboard::Z)) {
+				rectangle2.move(0, -5);
 			}
 		}
 		balle = ball.returnBalle();
 		posBalle = ball.returnPos();
 		raquette = rectangle.getGlobalBounds();
-		collision = ball.checkCollision(raquette);
+		raquette2 = rectangle2.getGlobalBounds();
+		collision = ball.checkCollision(raquette, raquette2);
 		if (collision == 1) {
 			ball.engagement();
 			terrain.incJ1();
@@ -75,6 +79,7 @@ int main(int argc, const char *argv[])
 		chaine = bla.str();
 		texte.setString(chaine);
 		rectangle.setFillColor(Color::White);
+		rectangle2.setFillColor(Color::Green);
 		balle.setFillColor(Color::White);
 		murG.setFillColor(Color::Red);
 		murD.setFillColor(Color::Red);
@@ -88,6 +93,7 @@ int main(int argc, const char *argv[])
 		app.draw(murB);
 		app.draw(balle);
 		app.draw(rectangle);
+		app.draw(rectangle2);
 		app.display();
 	}
 	return EXIT_SUCCESS;

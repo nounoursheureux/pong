@@ -40,10 +40,10 @@ RectangleShape Ball::returnBalle() {
 	return balle;
 }
 
-int Ball::checkCollision(FloatRect raquette) {
+int Ball::checkCollision(FloatRect raquette, FloatRect raquette2) {
 	Terrain terrain;
 	FloatRect* murs = terrain.returnMurs();
-	if (posBalle.intersects(raquette)) {
+	if (posBalle.intersects(raquette) || posBalle.intersects(raquette2)) {
 		ReverseX(); 
 		return 3;
 	}
