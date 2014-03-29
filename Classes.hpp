@@ -14,6 +14,7 @@ class Ball {
 		int checkCollision(FloatRect);
 		FloatRect returnPos();
 		RectangleShape returnBalle();
+		void engagement();
 	private :
 		int taille;
 		RectangleShape balle;

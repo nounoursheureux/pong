@@ -3,9 +3,11 @@ using namespace sf;
 #include <iostream>
 #include "Classes.hpp"
 #include <signal.h>
+#include <cstdlib>
+#include <ctime>
 
 Ball::Ball() {
-	speedX = 3;
+	speedX = -3;
 	speedY = 1;
 	balle = RectangleShape(Vector2f(10, 10));
 	balle.setOrigin(5, 5);
@@ -43,7 +45,7 @@ int Ball::checkCollision(FloatRect raquette) {
 	FloatRect* murs = terrain.returnMurs();
 	if (posBalle.intersects(raquette)) {
 		ReverseX(); 
-		return 0;
+		return 3;
 	}
 	if (posBalle.intersects(murs[0])) {
 		return 1;
@@ -57,3 +59,8 @@ int Ball::checkCollision(FloatRect raquette) {
 	}	
 }
 
+void Ball::engagement() {
+	speedX = rand()%(4 - (-3))+(-3);
+	speedY = rand()%(4 - (-3))+(-3);
+	balle.setPosition(320, 240);
+}

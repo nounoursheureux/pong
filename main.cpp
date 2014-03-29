@@ -11,6 +11,7 @@ int main(int argc, const char *argv[])
 	Ball ball;
 	Terrain terrain;
 	Font font;
+	int collision;
 	font.loadFromFile("Roboto-Light.ttf");
 	Text texte;
 	texte.setFont(font);
@@ -20,7 +21,6 @@ int main(int argc, const char *argv[])
 	std::string chaine;
 	std::ostringstream bla;
 	FloatRect posBalle;
-	FloatRect* murs = terrain.returnMurs();
 	RectangleShape balle = ball.returnBalle();
 	app.setFramerateLimit(60);
 	RectangleShape rectangle(Vector2f(32, 64));
@@ -59,10 +59,15 @@ int main(int argc, const char *argv[])
 		balle = ball.returnBalle();
 		posBalle = ball.returnPos();
 		raquette = rectangle.getGlobalBounds();
-		if (ball.checkCollision(raquette) == 1)
+		collision = ball.checkCollision(raquette);
+		if (collision == 1) {
+			ball.engagement();
 			terrain.incJ1();
-		if (ball.checkCollision(raquette) == 2)
+		}
+		if (collision == 2) {
+			ball.engagement();
 			terrain.incJ2();
+		}
 		ball.MoveX();
 		ball.MoveY();
 		bla.str("");
